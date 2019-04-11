@@ -7,10 +7,12 @@ import ru.avalon.java.j20.labs.models.Numbers;
 /**
  * Задание №1.
  *
- * <p>Тема: "Создание обобщённых методов".
+ * <p>
+ * Тема: "Создание обобщённых методов".
  *
- * <p>В рамках задания требуется описать и выполнить
- * несколько методов, обобщённых с указанной точностью.
+ * <p>
+ * В рамках задания требуется описать и выполнить несколько методов, обобщённых
+ * с указанной точностью.
  */
 public class Task1 implements Task {
 
@@ -24,10 +26,18 @@ public class Task1 implements Task {
      */
     @Override
     public void run() {
+
         int[] array = arrayFactory.getInstance(20);
-        int min = Numbers.min(array);
-        int max = Numbers.max(array);
-        double avg = Numbers.avg(array);
+
+        Number[] objArray = new Number[array.length];
+        int i = 0;
+        for (int value : array) {
+            objArray[i++] = value;
+        }
+
+        int min = Numbers.min(objArray).intValue();
+        int max = Numbers.max(objArray).intValue();
+        double avg = Numbers.avg(objArray);
         /*
          * TODO(Студент): Выполните задание №1
          *
