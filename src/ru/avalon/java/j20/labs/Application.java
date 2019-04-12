@@ -30,6 +30,5 @@ public class Application {
         for (Task task : TASKS) {
             task.run();
         }
-
     }
 }

@@ -30,20 +30,8 @@ public class Task5 implements Task {
         final int[] array = arrayFactory.getInstance(20);
 
         List<Integer> list = new ArrayList<>();
-
         Set<Integer> set = new HashSet<>();
 
-        /**
-         * TODO(Студент): Выполните задание №5
-         *
-         * 1. Проинициализируйте переменные list и set объектами подходящих
-         * классов.
-         *
-         * 2. В обе коллекции поместите элементы массива array.
-         *
-         * 3. С использованием отладчика проверьте корректность выполнения
-         * задания.
-         */
         for (int i : array) {
             list.add(i);
             set.add(i);
