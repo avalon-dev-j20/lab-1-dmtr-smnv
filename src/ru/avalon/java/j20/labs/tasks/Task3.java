@@ -1,13 +1,16 @@
 package ru.avalon.java.j20.labs.tasks;
 
+import java.util.Arrays;
 import ru.avalon.java.j20.labs.Task;
 
 import java.util.Iterator;
+import ru.avalon.java.j20.labs.models.Fibonacci;
 
 /**
  * Задание №3
  *
- * <p>Тема: "Изучение интерфейсов {@link Iterable} и {@link Iterator}".
+ * <p>
+ * Тема: "Изучение интерфейсов {@link Iterable} и {@link Iterator}".
  */
 public class Task3 implements Task {
 
@@ -34,5 +37,10 @@ public class Task3 implements Task {
          * 4. С использованием отладчика проверьте корректность
          *    выполнения задания.
          */
+
+        Fibonacci demoFibo = new Fibonacci(20);
+
+        int fiboArraySum = Arrays.stream(Fibonacci.fiboArray).sum();
+
     }
 }
