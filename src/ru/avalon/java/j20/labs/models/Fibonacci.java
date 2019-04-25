@@ -21,23 +21,32 @@ import java.util.List;
  */
 public class Fibonacci implements Iterable<Integer> {
 
-    public static List<Integer> fiboList = new ArrayList<>();
+    public List<Integer> fiboList = new ArrayList<>();
 
-    public static int[] fiboArray;
-
+    /**
+     * Конструктор класса Fibonacci, инициализирующий коллекцию типа Integer
+     * последовательностью Фибоначчи заданной длины.
+     *
+     * @param size - длина последовательности
+     */
     public Fibonacci(int size) {
-        fiboArray = fiboInitializer(size);
-        for (int i : fiboArray) {
-            fiboList.add(i);
-        }
+        fiboList = fiboInitializer(size);
     }
 
-    private int[] fiboInitializer(int quantity) {
-        int[] array = new int[quantity];
-        array[0] = 0;
-        array[1] = 1;
-        for (int i = 2; i < array.length; i++) {
-            array[i] = array[i - 2] + array[i - 1];
+    /**
+     * Инициализатор последовательности Фибоначчи.
+     *
+     * @param quantity - длина последовательности
+     * @return последовательность Фибоначчи в виде коллекции типа Integer
+     */
+    private List<Integer> fiboInitializer(int quantity) {
+        List<Integer> array = new ArrayList<>();
+        int i = 2;
+        array.add(0);
+        array.add(1);
+        while (i < quantity) {
+            array.add(array.get(i - 2) + array.get(i - 1));
+            i++;
         }
         return array;
     }
@@ -45,9 +54,9 @@ public class Fibonacci implements Iterable<Integer> {
     /**
      * Итератор, выполняющий обход последовательности чисел Фибоначчи.
      */
-    private static class FibonacciIterator implements Iterator<Integer> {
+    private class FibonacciIterator implements Iterator<Integer> {
 
-        private int position = -1;
+        private int index;
 
         /**
          * Определяет, есть ли следующее значение последовательности чисел
@@ -58,7 +67,7 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public boolean hasNext() {
-            return next() != null;
+            return index < fiboList.size();
         }
 
         /**
@@ -68,9 +77,17 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            position++;
-            return position < fiboArray.length ? fiboArray[position + 1] : null;
+            index++;
+            return fiboList.get(index);
         }
+    }
+
+    public int sum(List<Integer> arr) {
+        int sum = 0;
+        for (Integer i : arr) {
+            sum += i;
+        }
+        return sum;
     }
 
     /**
