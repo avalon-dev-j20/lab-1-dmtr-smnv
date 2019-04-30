@@ -8,21 +8,21 @@ public class Point<T extends Number> {
     /**
      * Абсцисса точки.
      */
-    private final T X;
+    private final T x;
     /**
      * Ордината точки.
      */
-    private final T Y;
+    private final T y;
 
     /**
      * Основной конструктор класса.
      *
-     * @param X абсцисса точки
-     * @param Y ордината точки
+     * @param x абсцисса точки
+     * @param y ордината точки
      */
-    public Point(T X, T Y) {
-        this.X = X;
-        this.Y = Y;
+    public Point(T x, T y) {
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -30,8 +30,8 @@ public class Point<T extends Number> {
      *
      * @return x-координата точки.
      */
-    public double getX() {
-        return X.doubleValue();
+    public T getX() {
+        return x;
     }
 
     /**
@@ -39,8 +39,8 @@ public class Point<T extends Number> {
      *
      * @return y-координата точки.
      */
-    public double getY() {
-        return Y.doubleValue();
+    public T getY() {
+        return y;
     }
 
     /**
@@ -50,8 +50,8 @@ public class Point<T extends Number> {
      * @return дистанция между точками
      */
     public double distanceTo(Point point) {
-        double dx = X.doubleValue() - point.X.doubleValue();
-        double dy = Y.doubleValue() - point.Y.doubleValue();
+        double dx = x.doubleValue() - point.x.doubleValue();
+        double dy = y.doubleValue() - point.y.doubleValue();
         return Math.sqrt(dx * dx + dy * dy);
     }
 }
