@@ -39,7 +39,7 @@ public class Fibonacci implements Iterable<Integer> {
 
         private int prePrevious = 0;
         private int previous = 1;
-        private int current = 1;
+        private int index = 2;
 
         /**
          * Определяет, есть ли следующее значение последовательности чисел
@@ -50,7 +50,7 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public boolean hasNext() {
-            return (current + 1) < size;
+            return index < size;
         }
 
         /**
@@ -60,7 +60,7 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            current++;
+            index++;
             int next = prePrevious + previous;
             prePrevious = previous;
             previous = next;

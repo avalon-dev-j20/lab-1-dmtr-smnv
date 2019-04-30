@@ -15,8 +15,8 @@ public class Task3 implements Task {
 
     @Override
     public void run() {
-        Fibonacci demoFibo = new Fibonacci(5);
-        int sum = 1;
+        Fibonacci demoFibo = new Fibonacci(2);
+        int sum = 1; // сумма первых двух элементов
         for (int item : demoFibo) {
             sum += item;
         }
