@@ -15,9 +15,9 @@ public final class Numbers {
      * @param values массив чисел
      * @return сумма элементов массива
      */
-    public static double sum(Number... values) {
+    public static <T extends Number> double sum(T[] values) {
         double sum = 0;
-        for (Number value : values) {
+        for (T value : values) {
             sum += value.doubleValue();
         }
         return sum;
@@ -29,7 +29,7 @@ public final class Numbers {
      * @param values массив значений
      * @return среднее арифметическое с точностью до типа {@code double}.
      */
-    public static double avg(Number... values) {
+    public static <T extends Number> double avg(T[] values) {
         return sum(values) / values.length;
     }
 
@@ -40,7 +40,7 @@ public final class Numbers {
      * @param b второе значение
      * @return большее из двух значений
      */
-    public static Number max(Number a, Number b) {
+    public static <T extends Number> T max(T a, T b) {
         return a.doubleValue() > b.doubleValue() ? a : b;
     }
 
@@ -50,8 +50,8 @@ public final class Numbers {
      * @param values массив значений
      * @return максимальное значение массива
      */
-    public static Number max(Number... values) {
-        Number result = values[0];
+    public static <T extends Number> T max(T[] values) {
+        T result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = max(result, values[i]);
         }
@@ -65,7 +65,7 @@ public final class Numbers {
      * @param b второе значение
      * @return меньшее из двух значений
      */
-    public static Number min(Number a, Number b) {
+    public static <T extends Number> T min(T a, T b) {
         return a.doubleValue() < b.doubleValue() ? a : b;
     }
 
@@ -75,8 +75,8 @@ public final class Numbers {
      * @param values массив значений
      * @return минимальное значение массива
      */
-    public static Number min(Number... values) {
-        Number result = values[0];
+    public static <T extends Number> T min(T[] values) {
+        T result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = min(result, values[i]);
         }
