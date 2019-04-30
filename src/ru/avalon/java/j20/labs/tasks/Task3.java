@@ -15,7 +15,10 @@ public class Task3 implements Task {
 
     @Override
     public void run() {
-        Fibonacci demoFibo = new Fibonacci(20);
-        int sequenceSum = demoFibo.sum(demoFibo.fiboList);
+        Fibonacci demoFibo = new Fibonacci(5);
+        int sum = 1;
+        for (int item : demoFibo) {
+            sum += item;
+        }
     }
 }

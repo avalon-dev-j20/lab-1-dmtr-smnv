@@ -21,34 +21,15 @@ import java.util.List;
  */
 public class Fibonacci implements Iterable<Integer> {
 
-    public List<Integer> fiboList = new ArrayList<>();
+    private final int size;
 
     /**
-     * Конструктор класса Fibonacci, инициализирующий коллекцию типа Integer
-     * последовательностью Фибоначчи заданной длины.
+     * Конструктор класса Fibonacci, принимающий длину последовательности.
      *
      * @param size - длина последовательности
      */
     public Fibonacci(int size) {
-        fiboList = fiboInitializer(size);
-    }
-
-    /**
-     * Инициализатор последовательности Фибоначчи.
-     *
-     * @param quantity - длина последовательности
-     * @return последовательность Фибоначчи в виде коллекции типа Integer
-     */
-    private List<Integer> fiboInitializer(int quantity) {
-        List<Integer> array = new ArrayList<>();
-        int i = 2;
-        array.add(0);
-        array.add(1);
-        while (i < quantity) {
-            array.add(array.get(i - 2) + array.get(i - 1));
-            i++;
-        }
-        return array;
+        this.size = size;
     }
 
     /**
@@ -56,7 +37,9 @@ public class Fibonacci implements Iterable<Integer> {
      */
     private class FibonacciIterator implements Iterator<Integer> {
 
-        private int index;
+        private int prePrevious = 0;
+        private int previous = 1;
+        private int current = 1;
 
         /**
          * Определяет, есть ли следующее значение последовательности чисел
@@ -67,7 +50,7 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public boolean hasNext() {
-            return index < fiboList.size();
+            return (current + 1) < size;
         }
 
         /**
@@ -77,17 +60,12 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            index++;
-            return fiboList.get(index);
+            current++;
+            int next = prePrevious + previous;
+            prePrevious = previous;
+            previous = next;
+            return next;
         }
-    }
-
-    public int sum(List<Integer> arr) {
-        int sum = 0;
-        for (Integer i : arr) {
-            sum += i;
-        }
-        return sum;
     }
 
     /**
