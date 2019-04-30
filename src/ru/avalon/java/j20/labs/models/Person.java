@@ -10,11 +10,11 @@ public class Person {
     /**
      * Имя.
      */
-    private final String NAME;
+    private final String name;
     /**
      * Фамилия.
      */
-    private final String SURNAME;
+    private final String surname;
 
     /**
      * Создаёт экземпляр класса на основании имени и даты рождения.
@@ -23,8 +23,8 @@ public class Person {
      * @param surname фамилия человека
      */
     public Person(String name, String surname) {
-        this.NAME = name;
-        this.SURNAME = surname;
+        this.name = name;
+        this.surname = surname;
     }
 
     /**
@@ -32,8 +32,8 @@ public class Person {
      *
      * @return имя человека
      */
-    public String getNAME() {
-        return NAME;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -41,21 +41,21 @@ public class Person {
      *
      * @return фамилия человека
      */
-    public String getSURNAME() {
-        return SURNAME;
+    public String getSurname() {
+        return surname;
     }
 
     @Override
     public boolean equals(Object otherObject) {
         if (otherObject instanceof Person) {
             Person otherPerson = (Person) otherObject;
-            return NAME.equals(otherPerson.NAME) && SURNAME.equals(otherPerson.SURNAME);
+            return name.equals(otherPerson.name) && surname.equals(otherPerson.surname);
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(NAME, SURNAME);
+        return Objects.hash(name, surname);
     }
 }
